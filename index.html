@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI-BERECHNUNG</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div class="elem-container draw-border" id="all-elems">
+        <div id="result">
+          Gib deine Höhe in Zentimetern <br />
+          und dein Gewicht in Kilogramm ein und klicke auf den Button,<br />
+          um Deinen BMI anzuzeigen !
+        </div>
+        <div class="elem-container" id="input-container">
+          <label>Höhe eingeben (cm)</label>
+          <input class="input-fields" id="height" />
+          <label>Gewicht eingeben (kg)</label>
+          <input class="input-fields" id="weight" />
+        </div>
+        <div class="elem-container" id="btn-container">
+          <button class="buttons" id="calc-btn">Calculate BMI</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const calcBtn = document.getElementById("calc-btn");
+      calcBtn.addEventListener("click", function () {
+        const height = document.getElementById("height");
+        const weight = document.getElementById("weight");
+        const result = document.getElementById("result");
+
+        const heightCm = parseFloat(height.value);
+        const weightKg = parseFloat(weight.value);
+        const heightM = heightCm / 100;
+        const bmi = weightKg / (heightM * heightM);
+        const addInfo =
+          bmi < 18.5
+            ? "Du bist untergewichtig und <br> solltest Gewicht zunehmen !"
+            : bmi < 25.0
+            ? "Dein Gewicht ist normal !"
+            : bmi < 30.0
+            ? "Du hast leichtes Übergewicht !"
+            : bmi < 35.0
+            ? "Du hast Übergewicht und solltest etwas abnehmen !"
+            : bmi < 40.0
+            ? "Du bist stark übergewichtig und <br> solltest dringend abnehmen !"
+            : "Du hast sehr starkes Übergewichtig und <br> solltest ganz ganz dringend abnehmen !!!";
+
+        if (
+          !isNaN(heightCm) &&
+          !isNaN(weightKg) &&
+          heightCm > 0 &&
+          weightKg > 0
+        ) {
+          result.innerHTML =
+            "Dein BMI beträgt: " + bmi.toFixed(2) + "<br>" + addInfo;
+        } else {
+          result.innerHTML =
+            "Bitte gib Werte in beide Eingabefelder ein,<br> bevor Du auf den Button klickst !";
+        }
+      });
+    </script>
+  </body>
+</html>
