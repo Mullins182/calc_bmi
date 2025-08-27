@@ -10,8 +10,8 @@
     <div id="main-container">
       <div class="elem-container draw-border" id="all-elems">
         <div id="result">
-          Gib deine Höhe in Zentimetern <br />
-          und dein Gewicht in Kilogramm ein und klicke auf den Button,<br />
+          Gib deine Höhe in Zentimetern und dein Gewicht in Kilogramm <br />
+          ein und klicke auf den Button, oder drücke [ ENTER ] <br />
           um Deinen BMI anzuzeigen !
         </div>
         <div class="elem-container" id="input-container">
@@ -24,8 +24,15 @@
       </div>
     </div>
     <script>
+      window.addEventListener("keydown", function (e) {
+        e.key === "Enter" || e.keyCode === 13 ? calcBMI() : null;
+      });
       const calcBtn = document.getElementById("calc-btn");
       calcBtn.addEventListener("click", function () {
+        calcBMI();
+      });
+
+      function calcBMI() {
         const height = document.getElementById("height");
         const weight = document.getElementById("weight");
         const result = document.getElementById("result");
@@ -59,7 +66,7 @@
           result.innerHTML =
             "Bitte gib Werte in beide Eingabefelder ein,<br> bevor Du auf den Button klickst !";
         }
-      });
+      }
     </script>
   </body>
 </html>
