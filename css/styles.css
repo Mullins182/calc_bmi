@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  height: 100svh;
-  padding: 5vh;
+  height: 100vh;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,10 +19,13 @@ body {
   border: 3px solid rgb(135, 25, 0);
   border-radius: 50%;
 }
+#all-elems {
+  width: 80vw;
+  height: 70vh;
+}
 .elem-container {
   display: flex;
-  width: auto;
-  padding: 10svw;
+  padding: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -58,6 +61,12 @@ body {
     overflow: scroll;
     padding-top: 8px;
   }
+  #all-elems {
+    width: 90vw;
+    height: 80vh;
+    min-width: 300px;
+    min-height: 630px;
+  }
   .elem-container {
     padding: 12px;
     display: flex;
@@ -73,5 +82,32 @@ body {
   }
   #result {
     padding: 8px;
+  }
+}
+@media (max-height: 625px) {
+  body {
+    overflow: scroll;
+    padding-top: 8px;
+  }
+  .elem-container {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  .draw-border {
+    border: 3px solid rgb(135, 25, 0);
+    border-radius: 1%;
+  }
+  .input-fields {
+    width: 100px;
+    height: 25px;
+  }
+  #result {
+    padding: 8px;
+    font-size: 20px;
+  }
+  .buttons {
+    font-size: 18px;
+    padding: 2px;
   }
 }
